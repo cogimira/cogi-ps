@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 import {showFileDropDown, hideFileDropDown} from './store/index';
+// import CogiPS from './packages/cogi-ps';
+import TopToolbar from './container/top-toolbar';
+import CenterBody from './container/center-body';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,22 +12,21 @@ class App extends React.Component {
 
     this.name = "sdsd";
     this.wsref = React.createRef();
+    // this.psVm = new CogiPS();
+    this.psVm = this.props.psVm;
   }
 
   componentDidMount() {
-    
+    console.log(this.props.psVm);
   }
 
   render() {
     const {showFileDropDownq, hideFileDropDownq, showDropDownq} = this.props;
     return (
-      <div className="App">
-        <div className="workspace" ref={this.wsref}>
-          this is test </div>
-          {showDropDownq ? <div>file drop down</div> : null}
-          <button onClick={showFileDropDownq}>show</button>
-          <button onClick={hideFileDropDownq}>hide</button>
-      </div>
+      <React.Fragment>
+        <CenterBody psVm={this.psVm}/>
+        <TopToolbar psVm={this.psVm}/>
+      </React.Fragment>
     );
   }
 }
