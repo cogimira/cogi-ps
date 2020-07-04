@@ -25,7 +25,7 @@ class BodyToolContainer extends React.Component {
             <BodyDragger containerStyle={containerStyle}  headerChildren={this.toolBoxHeader()}>
                 <LeftToolBox menuClick={this.leftToolBoxMenuClick}/>
             </BodyDragger>
-            <BodyDragger containerStyle={containerStyle2}>
+            {/* <BodyDragger containerStyle={containerStyle2}>
                 <div style={{background: "rgb(57, 61, 61)", color: "white", lineHeight: "2rem", textAlign: "center"}}>1</div>
             </BodyDragger>
 
@@ -39,7 +39,7 @@ class BodyToolContainer extends React.Component {
 
             <BodyDragger containerStyle={{width: "15rem", left: "25rem", top: "12rem"}}>
                 <div style={{background: "rgb(57, 61, 61)", color: "white", lineHeight: "2rem", textAlign: "center"}}>1</div>
-            </BodyDragger>
+            </BodyDragger> */}
         </div>)
     }
 }

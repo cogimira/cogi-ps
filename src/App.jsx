@@ -6,6 +6,7 @@ import {showFileDropDown, hideFileDropDown} from './store/index';
 import TopToolbar from './container/top-toolbar';
 import CenterBody from './container/center-body';
 import BodyToolContainer from './container/body-tool-container';
+import DialogBody from './container/dialog-body';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class App extends React.Component {
         <CenterBody psVm={this.psVm}/>
         <TopToolbar psVm={this.psVm}/>
         <BodyToolContainer psVm={this.psVm}/>
+        <DialogBody/>
       </React.Fragment>
     );
   }

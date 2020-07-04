@@ -1,5 +1,6 @@
 import React from 'react';
-import './style/center-body.css'
+import './style/center-body.css';
+import GraphicWindow from './graphic-window';
 class CenterBody extends React.Component {
     constructor(props) {
         super(props);
@@ -7,7 +8,9 @@ class CenterBody extends React.Component {
     }
 
     render() {
-        return (<div className="center-body"></div>);
+        return (<div className="center-body">
+            <GraphicWindow width="60rem" height="35rem"/>
+        </div>);
     }
 }
 

@@ -2,6 +2,11 @@ import React from 'react';
 import Dropdown from '../compnents/dropdown';
 import './style/top-toolbar.css';
 
+import { renderDialog, hideDialog} from '../store/index';
+import DialogWapper from '../compnents/dialog-wrapper';
+import CreateWindow from '../compnents/create-window-dialog';
+import store from '../store';
+
 class TopToolbar extends React.Component {
     constructor() {
         super();
@@ -31,6 +36,11 @@ class TopToolbar extends React.Component {
     // 顶部工具栏菜单点击
     toobarMenuClick(name) {
         console.log(name);
+        // const {store} = this.props;
+        if(name === "creat-window") {
+            debugger;
+            store.dispatch(renderDialog(<DialogWapper width="10rem" height="10rem" background="red"><CreateWindow/></DialogWapper>));
+        }
     }
 
     initRef(data) {
