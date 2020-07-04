@@ -1,0 +1,20 @@
+.cogi-drop-btn {
+    font-size: 0.94rem;
+    line-height: 2.5rem;
+    color: honeydew;
+    
+    padding: 0.3rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    position: relative;
+    cursor: pointer;
+    border-left: 0.001rem solid rgb(70, 68, 68);
+    user-select: none;
+}
+.menu-container{
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: 0;
+    bottom: -0.4rem;
+}

@@ -1,0 +1,14 @@
+.drop-container {
+    width: 7rem;
+    background: indigo;
+}
+
+.menu-item{
+    line-height: 2rem;
+    background: rgb(57, 61, 61);
+    color: white;
+    text-indent: 0.7rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    user-select: none;
+}
