@@ -1,0 +1,15 @@
+.body-dragger-container {
+    position: absolute;
+}
+
+.body-dragger-header{
+    height: 1.6rem;
+    background: rgb(37, 33, 33);
+    user-select: none;
+    cursor: pointer;
+    
+}
+
+.body-dragger-header div {
+    line-height: 1.6rem;
+}

@@ -28,6 +28,7 @@ class TopToolbar extends React.Component {
 
     }
 
+    // 顶部工具栏菜单点击
     toobarMenuClick(name) {
         console.log(name);
     }
@@ -50,7 +51,6 @@ class TopToolbar extends React.Component {
         let allToolKeys = this.getKeys(this.tools);
 
         allToolKeys.forEach((id) => {
-        debugger
             if(id !== idName) {
                 let key = `${id}_ref`;
                 this[key].current.hideMenu();

@@ -5,6 +5,7 @@ import {showFileDropDown, hideFileDropDown} from './store/index';
 // import CogiPS from './packages/cogi-ps';
 import TopToolbar from './container/top-toolbar';
 import CenterBody from './container/center-body';
+import BodyToolContainer from './container/body-tool-container';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
       <React.Fragment>
         <CenterBody psVm={this.psVm}/>
         <TopToolbar psVm={this.psVm}/>
+        <BodyToolContainer psVm={this.psVm}/>
       </React.Fragment>
     );
   }

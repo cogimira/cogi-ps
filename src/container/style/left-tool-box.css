@@ -1,0 +1,17 @@
+.left-tool-item {
+    line-height: 1.4rem;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    background: rgb(57, 61, 61);
+    color:white;
+    text-align: center;
+    font-size: 0.74rem;
+    user-select: none;
+    cursor: pointer;
+    /* rgb(78, 80, 80); */
+}
+
+.left-tool-item-active {
+    background: rgb(119, 129, 129);
+    color: white;
+}
