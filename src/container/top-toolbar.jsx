@@ -27,9 +27,19 @@ class TopToolbar extends React.Component {
         this.toobarClick = this.toobarClick.bind(this);
 
         this.initRef(this.getKeys(this.tools));
+
+        this.windowCreate = this.windowCreate.bind(this);
     }
 
     componentDidMount() {
+
+    }
+
+    windowCreate(data) {
+        let {psVm} = this.props;
+        psVm.createGraphicWindow(data.width, data.height);
+        store.dispatch(hideDialog());
+
 
     }
 
@@ -38,7 +48,11 @@ class TopToolbar extends React.Component {
         console.log(name);
         if(name === "creat-window") {
             // debugger;
-            store.dispatch(renderDialog(<DialogWapper width="22rem" height="8rem" background="#131315"><CreateWindow/></DialogWapper>));
+            let {psVm} = this.props;
+            if(psVm.graphicWindows.length > 0) {
+                return;
+            }
+            store.dispatch(renderDialog(<DialogWapper width="22rem" height="8rem" background="#131315"><CreateWindow windowCreate={this.windowCreate}/></DialogWapper>));
         }
     }
 
@@ -89,5 +103,18 @@ class TopToolbar extends React.Component {
         </div>)
     }
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+//     }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         hideDialog: () => {
+//             dispatch(hideDialog());
+//         }
+//     }
+// }
 
 export default TopToolbar;
