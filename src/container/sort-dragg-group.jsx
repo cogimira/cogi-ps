@@ -41,7 +41,10 @@ class SortDraggGroup extends React.Component {
         let localRect = this.offsetRefC.current.getClientRects()[0];
         let deltaX = pageX - localRect.left;
         let deltaY = pageY - localRect.top;
-        this.offsetRef.current.style.left = deltaX + "px";
+        // 限制水平方向拖动
+        if(!this.props.disableH) {
+            this.offsetRef.current.style.left = deltaX + "px";
+        }
         this.offsetRef.current.style.top = deltaY + "px";
         this.offsetRef.current.style.zIndex = 1000;
 

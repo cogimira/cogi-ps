@@ -11,7 +11,7 @@ class GraphicLayer extends React.Component {
 
     render() {
         return (<div className="graphic-layer-c">
-            <SortDraggGroup>
+            <SortDraggGroup disableH={true}>
                 <LayerItemContainer sortId="1"/>
                 <LayerItemContainer sortId="2"/>
                 <LayerItemContainer sortId="3"/>
