@@ -21,7 +21,7 @@ class BodyToolContainer extends React.Component {
 
     render() {
         let containerStyle={width: "3.3rem", left: "5rem", top: "10rem"};
-        let containerStyle2={width: "15rem", right: "0.5rem", top: "3rem", height: '2rem'};
+        let containerStyle2={width: "15rem", right: "0.5rem", top: "3rem"};
         return (<div className="body-tool-container">
             <BodyDragger containerStyle={containerStyle}  headerChildren={this.toolBoxHeader('工具栏')}>
                 <LeftToolBox menuClick={this.leftToolBoxMenuClick}/>
