@@ -33,7 +33,7 @@ class LeftToolBox extends React.Component {
     render() {
         const toolList = this.toolList;
         const selectIdName = this.state.selectIdName;
-        debugger;
+        // debugger;
         return (
             <React.Fragment>
                 {toolList.map((item, index) => {

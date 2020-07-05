@@ -24,7 +24,7 @@ class Dropdown extends React.PureComponent {
     btnClick(e) {
         const {toobarClick, idName} = this.props;
         toobarClick(idName);
-        debugger;
+        // debugger;
         
     }
 

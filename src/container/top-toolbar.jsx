@@ -37,7 +37,7 @@ class TopToolbar extends React.Component {
     toobarMenuClick(name) {
         console.log(name);
         if(name === "creat-window") {
-            debugger;
+            // debugger;
             store.dispatch(renderDialog(<DialogWapper width="22rem" height="8rem" background="#131315"><CreateWindow/></DialogWapper>));
         }
     }

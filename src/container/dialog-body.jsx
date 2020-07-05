@@ -16,7 +16,7 @@ class DialogBody extends React.Component {
 
     getShowBody() {
         const {dialogChildren, showDialog} = this.props;
-        debugger;
+        // debugger;
         if(showDialog) {
             return (<div className="dialog-container" onClick={this.blankClick}>
                 <div className="dialog-container-back"></div>
