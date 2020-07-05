@@ -36,10 +36,9 @@ class TopToolbar extends React.Component {
     // 顶部工具栏菜单点击
     toobarMenuClick(name) {
         console.log(name);
-        // const {store} = this.props;
         if(name === "creat-window") {
             debugger;
-            store.dispatch(renderDialog(<DialogWapper width="10rem" height="10rem" background="red"><CreateWindow/></DialogWapper>));
+            store.dispatch(renderDialog(<DialogWapper width="22rem" height="8rem" background="#131315"><CreateWindow/></DialogWapper>));
         }
     }
 

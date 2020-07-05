@@ -1,0 +1,11 @@
+.cwd-bottom-right-c {
+    position: absolute;
+    bottom: 0.7rem;
+    right: 0.5rem;
+}
+
+.cwd-edit-body {
+    margin-left: 5%;
+    /* transform: translate(-50%, 0); */
+    margin-top: 1.5rem;
+}

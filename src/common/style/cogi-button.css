@@ -1,0 +1,10 @@
+.cogi-botton {
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    text-align: center;
+    background: rgb(46, 80, 100);
+    color:white;
+    margin: 0.2rem;
+    cursor: pointer;
+    user-select: none;
+}
