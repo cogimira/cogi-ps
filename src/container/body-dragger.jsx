@@ -31,6 +31,14 @@ class BodyDragger extends React.Component{
         if(this.dragging) {
             let newX = e.pageX + this.deltaX;
             let newY = e.pageY + this.deltaY;
+            newX = newX < 0 ? 0 : newX;
+            newY = newY < 0 ? 0 : newY;
+            let containerRect = this.dragContainer.current.getClientRects()[0];
+            let bodyRect = document.body.getClientRects()[0];
+            let maxX = bodyRect.width - containerRect.width;
+            let maxY = bodyRect.height - containerRect.height;
+            newX = newX > maxX ? maxX : newX;
+            newY = newY > maxY ? maxY : newY;
             this.dragContainer.current.style.left = newX + "px";
             this.dragContainer.current.style.top = newY + "px";
         }

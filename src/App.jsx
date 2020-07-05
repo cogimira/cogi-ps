@@ -7,6 +7,7 @@ import TopToolbar from './container/top-toolbar';
 import CenterBody from './container/center-body';
 import BodyToolContainer from './container/body-tool-container';
 import DialogBody from './container/dialog-body';
+import GraphicLayer from './container/graphic-layer';
 
 class App extends React.Component {
   constructor(props) {

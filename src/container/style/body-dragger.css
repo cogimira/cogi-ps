@@ -3,13 +3,13 @@
 }
 
 .body-dragger-header{
-    height: 1.6rem;
-    background: rgb(37, 33, 33);
+    height: 2rem;
+    background: rgb(9, 38, 47);
     user-select: none;
     cursor: pointer;
     
 }
 
 .body-dragger-header div {
-    line-height: 1.6rem;
+    line-height: 2rem;
 }
