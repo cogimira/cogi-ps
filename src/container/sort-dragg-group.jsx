@@ -15,6 +15,9 @@ class SortDraggGroup extends React.Component {
             wrapperChild: null
         }
 
+        this.offsetRef = React.createRef();
+        this.offsetRefC = React.createRef();
+        
 
     }
 
@@ -24,7 +27,7 @@ class SortDraggGroup extends React.Component {
         data.event.preventDefault();
         window.addEventListener("mousemove", this.dragging);
         window.addEventListener("mouseup",this.endDrag);
-
+        this.dragging(data.event);
         this.setState( {
             wrapperChild: <SortDraggItem sortId={data.sortId} props={{...data.props}}>
                 {data.children}
@@ -33,12 +36,23 @@ class SortDraggGroup extends React.Component {
     }
 
     dragging(e) {
+        let pageX = e.pageX;
+        let pageY = e.pageY;
+        let localRect = this.offsetRefC.current.getClientRects()[0];
+        let deltaX = pageX - localRect.left;
+        let deltaY = pageY - localRect.top;
+        this.offsetRef.current.style.left = deltaX + "px";
+        this.offsetRef.current.style.top = deltaY + "px";
+        this.offsetRef.current.style.zIndex = 1000;
+
 
     }
 
     endDrag(e) {
         window.removeEventListener("mousemove", this.dragging);
         window.removeEventListener("mouseup",this.endDrag);
+        this.offsetRef.current.style.left = 0 + "px";
+        this.offsetRef.current.style.top = 0 + "px";
         this.setState( {
             wrapperChild: null
         });
@@ -48,8 +62,8 @@ class SortDraggGroup extends React.Component {
         const {children} = this.props;
         const {wrapperChild} = this.state;
         return (<React.Fragment>
-            <div className="sort-group-dragg-c">
-                <div className="sort-wrapper">
+            <div className="sort-group-dragg-c" ref={this.offsetRefC}>
+                <div className="sort-wrapper" ref={this.offsetRef}>
                     {wrapperChild}
                 </div>
             </div>
