@@ -36,6 +36,8 @@ class SortDraggGroup extends React.Component {
         window.addEventListener("mousemove", this.dragging);
         window.addEventListener("mouseup",this.endDrag);
         this.dragging(data.event);
+        let allSortIds = this.getAllSortIds();
+        this.dragIndex = allSortIds.indexOf(data.sortId);
         this.setState( {
             wrapperChild: <SortDraggItem sortId={data.sortId} props={{...data.props}}>
                 {data.children}
@@ -44,7 +46,6 @@ class SortDraggGroup extends React.Component {
     }
 
     dragging(e) {
-        debugger;
         let pageX = e.pageX;
         let pageY = e.pageY;
         let localRect = this.offsetRefC.current.getClientRects()[0];
@@ -69,10 +70,6 @@ class SortDraggGroup extends React.Component {
             }
         }
 
-        
-
-        
-
     }
 
     getAllSortIds() {
@@ -94,6 +91,8 @@ class SortDraggGroup extends React.Component {
             wrapperChild: null
         });
 
+        let findInsert = false;
+        let beforeId = null;
         let allSortId = this.getAllSortIds();
         for(let i = 0; i < allSortId.length; i++) {
             let refKey = `${allSortId[i]}_ref`;
@@ -102,8 +101,14 @@ class SortDraggGroup extends React.Component {
             let currentRect = dragC.getClientRects()[0];
             if(Math.abs(e.pageY - currentRect.top) < 10) {
                 console.log('inser before ' +  allSortId[i]);
+                findInsert = true;
+                beforeId = allSortId[i];
             }
-            
+        }
+        if(findInsert) {
+            const {sortChange} = this.props;
+            let newIndex = allSortId.indexOf(beforeId);
+            sortChange(allSortId[this.dragIndex], newIndex, this.dragIndex);
         }
     }
 
