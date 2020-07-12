@@ -39,7 +39,7 @@ class SortDraggGroup extends React.Component {
         let allSortIds = this.getAllSortIds();
         this.dragIndex = allSortIds.indexOf(data.sortId);
         this.setState( {
-            wrapperChild: <SortDraggItem sortId={data.sortId} props={{...data.props}}>
+            wrapperChild: <SortDraggItem sortId={data.sortId} props={{...data.props}} style={{opacity: 0.4}}>
                 {data.children}
             </SortDraggItem>
         });

@@ -44,14 +44,22 @@ class GraphicLayer extends React.Component {
         let newLayes = [];
         let layers = this.state.layers;
         for(let i = 0; i < layers.length; i++) {
+            if(newLayes.length === newIndex) {
+                newLayes.push(insertLayerData);
+            }
             if(targetId !== layers[i].layerId) {
-                if(newLayes.length === newIndex) {
-                    newLayes.push(insertLayerData);
-                }
                 newLayes.push(layers[i]);
+            } else {
+                newLayes.push(null);
             }
         }
-        this.updateLayers(newLayes);
+        let newLayesEnd = [];
+        newLayes.forEach((item) => {
+            if(item) {
+                newLayesEnd.push(item);
+            }
+        });
+        this.updateLayers(newLayesEnd);
         console.log(targetId);
         console.log(newIndex);
         console.log(oldIndex);

@@ -19,8 +19,8 @@ class SortDraggItem extends React.Component {
     }
 
     render() {
-        const {children} = this.props;
-        return <div onMouseDown={this.dragStart} ref={this.dragRef}>
+        const {children, style} = this.props;
+        return <div onMouseDown={this.dragStart} ref={this.dragRef} style={style}>
             {children}
         </div>
     }
