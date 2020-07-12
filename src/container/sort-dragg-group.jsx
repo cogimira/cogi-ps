@@ -17,6 +17,14 @@ class SortDraggGroup extends React.Component {
 
         this.offsetRef = React.createRef();
         this.offsetRefC = React.createRef();
+
+        const {children} = this.props;
+        children.map((item) => {
+            let sid = item.props.sortId;
+            let refKey = `${sid}_ref`;
+            this[refKey] = React.createRef();
+        });
+
         
 
     }
@@ -36,6 +44,7 @@ class SortDraggGroup extends React.Component {
     }
 
     dragging(e) {
+        debugger;
         let pageX = e.pageX;
         let pageY = e.pageY;
         let localRect = this.offsetRefC.current.getClientRects()[0];
@@ -47,8 +56,32 @@ class SortDraggGroup extends React.Component {
         }
         this.offsetRef.current.style.top = deltaY + "px";
         this.offsetRef.current.style.zIndex = 1000;
+        let allSortId = this.getAllSortIds();
+        for(let i = 0; i < allSortId.length; i++) {
+            let refKey = `${allSortId[i]}_ref`;
+            let dragC = this[refKey].current.dragRef.current;
+            dragC.style.borderTop = 'none';
+            let currentRect = dragC.getClientRects()[0];
+            if(Math.abs(pageY - currentRect.top) < 10) {
+                dragC.style.borderTop = '4px solid white';
+            } else {
+                dragC.style.borderTop = 'none';
+            }
+        }
 
+        
 
+        
+
+    }
+
+    getAllSortIds() {
+        const {children} = this.props;
+        let res = [];
+        children.map((item) => {
+            res.push(item.props.sortId);
+        });
+        return res;
     }
 
     endDrag(e) {
@@ -56,9 +89,22 @@ class SortDraggGroup extends React.Component {
         window.removeEventListener("mouseup",this.endDrag);
         this.offsetRef.current.style.left = 0 + "px";
         this.offsetRef.current.style.top = 0 + "px";
+
         this.setState( {
             wrapperChild: null
         });
+
+        let allSortId = this.getAllSortIds();
+        for(let i = 0; i < allSortId.length; i++) {
+            let refKey = `${allSortId[i]}_ref`;
+            let dragC = this[refKey].current.dragRef.current;
+            dragC.style.borderTop = 'none';
+            let currentRect = dragC.getClientRects()[0];
+            if(Math.abs(e.pageY - currentRect.top) < 10) {
+                console.log('inser before ' +  allSortId[i]);
+            }
+            
+        }
     }
 
     render() {
@@ -71,7 +117,11 @@ class SortDraggGroup extends React.Component {
                 </div>
             </div>
             {children.map((item, index) => {
-                return <SortDraggItem key={index} sortId={item.props.sortId} 
+                let sid = item.props.sortId;
+                let refKey = `${sid}_ref`;
+                // this[refKey] = React.createRef();
+                return <SortDraggItem key={index} sortId={item.props.sortId}
+                ref={this[refKey]}
                 dragStart={this.dragStart}
                 dragging={this.dragging}
                 endDrag={this.endDrag} >

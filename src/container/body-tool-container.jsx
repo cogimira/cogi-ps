@@ -20,6 +20,7 @@ class BodyToolContainer extends React.Component {
     }
 
     render() {
+        let psVm = this.props.psVm;
         let containerStyle={width: "3.3rem", left: "5rem", top: "10rem"};
         let containerStyle2={width: "15rem", right: "0.5rem", top: "3rem"};
         return (<div className="body-tool-container">
@@ -27,7 +28,7 @@ class BodyToolContainer extends React.Component {
                 <LeftToolBox menuClick={this.leftToolBoxMenuClick}/>
             </BodyDragger>
             <BodyDragger containerStyle={containerStyle2} headerChildren={this.toolBoxHeader('图层')}>
-                <GraphicLayer/>
+                <GraphicLayer psVm={psVm}/>
             </BodyDragger>
 
            

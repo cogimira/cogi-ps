@@ -18,4 +18,10 @@ export default class CogiPS extends EventEmitter{
             width, height
         })
     }
+
+    getLayers() {
+        return [
+            {layerId: "1"},{layerId: "2"},{layerId: "3"},{layerId: "4"}
+        ]
+    }
 }
