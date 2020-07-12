@@ -8,14 +8,13 @@ import CenterBody from './container/center-body';
 import BodyToolContainer from './container/body-tool-container';
 import DialogBody from './container/dialog-body';
 import GraphicLayer from './container/graphic-layer';
+import EditingState from './container/editing-state';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.name = "sdsd";
     this.wsref = React.createRef();
-    // this.psVm = new CogiPS();
     this.psVm = this.props.psVm;
   }
 
@@ -29,8 +28,9 @@ class App extends React.Component {
       <React.Fragment>
         <CenterBody psVm={this.psVm}/>
         <TopToolbar psVm={this.psVm}/>
-        <BodyToolContainer psVm={this.psVm}/>
         <DialogBody/>
+        <EditingState psVm={this.props.psVm}/>
+        <BodyToolContainer psVm={this.psVm}/>
       </React.Fragment>
     );
   }

@@ -1,0 +1,12 @@
+.editing-state-container {
+    position: relative;
+    height: 2rem;
+    background: rgb(13, 12, 15);
+    color: white;
+    line-height: 2rem;
+    border-radius: 0.05rem;
+    width: 99.5%;
+    margin: auto;
+    margin-top: 0.2rem;
+    border: 0.01rem solid rgb(41, 61, 83);
+}

@@ -23,6 +23,10 @@ export default class CogiPS extends EventEmitter{
         return newWindow;
     }
 
+    getCurrentTooSelect() {
+        return 'select';
+    }
+
     getGraphicWindowById(id) {
         let tagetGraphic = null;
         this.graphicWindows.forEach((item) => {

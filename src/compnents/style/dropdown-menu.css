@@ -1,6 +1,7 @@
 .drop-container {
     width: 7rem;
     background: indigo;
+    z-index: 10000;
 }
 
 .menu-item{

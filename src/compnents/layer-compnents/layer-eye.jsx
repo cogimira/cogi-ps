@@ -24,7 +24,7 @@ class LayerEye extends React.PureComponent {
 
     render() {
         const show = this.state.show;
-        return (<span className="cogi-layer-eye-c" onClick={this.eyeClick}>
+        return (<span className="cogi-layer-eye-c" onClick={this.eyeClick} onMouseDown={this.eyeClick}>
             {show ? <i className="gg-eye-alt"></i> : null}
         </span> )
     }

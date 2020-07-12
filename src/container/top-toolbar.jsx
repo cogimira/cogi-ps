@@ -6,6 +6,7 @@ import { renderDialog, hideDialog} from '../store/index';
 import DialogWapper from '../compnents/dialog-wrapper';
 import CreateWindow from '../compnents/create-window-dialog';
 import store from '../store';
+import EditingState from './editing-state';
 
 class TopToolbar extends React.Component {
     constructor() {
@@ -100,6 +101,7 @@ class TopToolbar extends React.Component {
                     toobarMenuClick={this.toobarMenuClick}/>
                 })}
             </div>
+           
         </div>)
     }
 }
