@@ -11,6 +11,8 @@ class CenterBody extends React.Component {
             height: '35rem',
             show: false
         }
+
+        this.windowRef = React.createRef();
     }
 
     componentDidMount() {
@@ -18,11 +20,16 @@ class CenterBody extends React.Component {
         psVm.on("graphic-created", (data) => {
             let width = data.width;
             let height = data.height;
+            let windowId = data.windowId;
             this.setState({
                 width: width + 'px',
                 height: height + 'px',
                 show: true
             });
+            setImmediate(() => {
+                let container = this.windowRef.current.getWindowContainer()
+                psVm.createWindow(container, windowId);
+            }, 100);
         });
     }
 
@@ -30,7 +37,7 @@ class CenterBody extends React.Component {
         const {width, height, show} = this.state;
         return (<div className="center-body">
             {
-                show ? <GraphicWindow width={width} height={height} /> : null
+                show ? <GraphicWindow ref={this.windowRef} width={width} height={height} /> : null
             }
         </div>);
     }

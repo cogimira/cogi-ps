@@ -32,3 +32,15 @@ export function copyArray(ary) {
   }
   return res;
 }
+
+export function uid(n) {
+  n = (!n || n < 20) ? Math.abs(n) : n;
+  let letter = 'qwertyuiopasdfghjklzxcvbnm1234567890';
+  let letterLen = letter.length;
+  let res = "";
+  for(let i = 0; i < n; i++) {
+    let pickLetterIndex = parseInt(Math.random() * letterLen);
+    res += letter[pickLetterIndex];
+  }
+  return res;
+}
