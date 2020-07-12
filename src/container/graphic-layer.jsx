@@ -15,10 +15,11 @@ class GraphicLayer extends React.Component {
 
         this.updateLayers = this.updateLayers.bind(this);
         this.sortChange = this.sortChange.bind(this);
+        this.createLayer = this.createLayer.bind(this);
     }
 
     componentDidMount() {
-        this.psVm.on("layer_change", this.updateLayers);
+        this.psVm.on("graphic-layer-created", this.updateLayers);
     }
 
     updateLayers(data) {
@@ -60,13 +61,14 @@ class GraphicLayer extends React.Component {
             }
         });
         this.updateLayers(newLayesEnd);
-        console.log(targetId);
-        console.log(newIndex);
-        console.log(oldIndex);
     }
 
     componentWillUnmount() {
         this.psVm.off("layer_change", this.updateLayers);
+    }
+
+    createLayer() {
+        this.psVm.createLayer('blank');
     }
 
     render() {
@@ -75,11 +77,11 @@ class GraphicLayer extends React.Component {
             <SortDraggGroup disableH={true} sortChange={this.sortChange}>
                 {
                     layers.map((element, index) => {
-                        return <LayerItemContainer key={index} sortId={element.layerId}/>
+                        return <LayerItemContainer key={element.layerId + "_layer"} sortId={element.layerId}/>
                     })
                 }
             </SortDraggGroup>
-            <LayerBottomTool/>
+            <LayerBottomTool createLayer={this.createLayer}/>
         </div>);
     }
 }

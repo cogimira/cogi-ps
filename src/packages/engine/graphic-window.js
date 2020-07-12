@@ -1,4 +1,4 @@
-import {uid} from './webgl-lib/util/lib'
+import {uid} from '../webgl-lib/util/lib'
 
 export default class GraphicWindow {
     constructor(id, width, height) {

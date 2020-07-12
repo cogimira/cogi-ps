@@ -17,8 +17,8 @@ class CreateWindowDialog extends React.Component {
 
         this.hInputonBlur = this.hInputonBlur.bind(this);
 
-        this.width = "800px";
-        this.height = "600px"
+        this.width = 800;
+        this.height = 600;
     }
 
     closeWidnow(e) {
@@ -45,11 +45,11 @@ class CreateWindowDialog extends React.Component {
     }
 
     wInputonBlur(e) {
-        this.width = parseInt(e.target.value);
+        this.width = parseInt(e.target.value) || 800;
     }
 
     hInputonBlur(e) {
-        this.height = parseInt(e.target.value);
+        this.height = parseInt(e.target.value) || 600;
     }
 
     wInputonChange(e) {

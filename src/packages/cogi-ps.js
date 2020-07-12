@@ -1,5 +1,7 @@
 import EventEmitter from 'events';
-import GraphicWindow from './graphic-window'
+import GraphicWindow from './engine/graphic-window';
+import GraphicLayer from './engine/graphic-layer';
+
 
 export default class CogiPS extends EventEmitter{
     constructor() {
@@ -9,6 +11,7 @@ export default class CogiPS extends EventEmitter{
         }, 500);
 
         this.graphicWindows = [];
+        this.layers = [];
     }
 
     createGraphicWindow(width, height, options) {
@@ -31,9 +34,20 @@ export default class CogiPS extends EventEmitter{
     }
 
     getLayers() {
-        return [
-            {layerId: "1"},{layerId: "2"},{layerId: "3"},{layerId: "4"}
-        ]
+        let encodeData = [{layerId: "1"},{layerId: "2"},{layerId: "3"}, {layerId: "4"}, {layerId: "5"}, {layerId: "7"}, {layerId: "8"}, {layerId: "9"}];
+        for(let i = 0; i < this.layers.length; i++) {
+            let layerData = this.layers[i].encodeLayer();
+            encodeData.push(layerData);
+        }
+        return encodeData;
+    }
+
+    createLayer(type) {
+        let layer = new GraphicLayer(null, type);
+        this.layers.push(layer);
+        let layerData = this.getLayers();
+        this.emit('graphic-layer-created', layerData);
+
     }
 
     createWindow(container, graphicId) {
