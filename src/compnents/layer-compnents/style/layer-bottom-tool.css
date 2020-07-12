@@ -1,4 +1,13 @@
 .layer-bottom-tool-c {
     height: 2rem;
     background: rgb(27, 29, 29);
+    line-height: 2rem;
+    color: white;
+}
+
+.layer-bottom-tool-c span {
+    display: inline-block;
+    height: 100%;
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
 }

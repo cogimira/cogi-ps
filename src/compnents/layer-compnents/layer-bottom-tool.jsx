@@ -11,7 +11,8 @@ class LayerBottomTool extends React.Component {
     render() {
         const {createLayer} = this.props;
         return (<div className="layer-bottom-tool-c">
-            <span onClick={(e) => { e.stopPropagation(); createLayer(e)}}>创建</span>
+            <span onClick={(e) => { e.stopPropagation(); createLayer(e)}}>新建图层</span>
+            <span onClick={(e) => { e.stopPropagation();}}>曲线</span>
         </div>)
     }
 }
